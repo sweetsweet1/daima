@@ -1,0 +1,36 @@
+> 给定一个非负索引 k，其中 k ≤ 33，返回杨辉三角的第 k 行。
+> 
+> 在杨辉三角中，每个数是它左上方和右上方的数的和。
+> 
+> 示例:
+> 
+> 输入: 3 输出: [1,3,3,1]
+> 
+> 来源：力扣（LeetCode）
+> 链接：https://leetcode-cn.com/problems/pascals-triangle-ii
+> 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+```c
+int* getRow(int rowIndex, int* returnSize)
+{
+    *returnSize = rowIndex + 1;//行从0开始，所以要加1
+    int *res = (int*)malloc(sizeof(int) * (rowIndex + 1));
+    for (int i = 0; i < rowIndex + 1; i++)
+    {
+        res[i] = 1;
+        for (int j = i - 1; j > 0; j--)//从第3行开始有除了1之外的数字
+        {
+            res[j]=res[j]+res[j - 1];//从倒数第二个开始改变
+        }
+    }
+    return res;
+}
+```
+第2行是 1 1，
+第3行没有到j循环是为 1 1 1，因为此时j>0成立，所以从倒数第2个开始改变，res[1]=res[1]+res[0]=2,这里的res[1]、res[0]是上一状态
+下的res[1]、res[0]，刚好是第2行的res[1]、res[0]。
+1
+11
+111    121
+1211   1231   1331
+·········
