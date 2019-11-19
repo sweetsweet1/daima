@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框画三角形</title>
+    <style type="text/css">
+        .san{
+            width: 0px;/*宽度为0，高度无所谓*/
+            height: 100px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #666666 white white white;
+        }
+    </style>
+</head>
+<body>
+<div class="san">
+</div>
+</body>
+</html>
