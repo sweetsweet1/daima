@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D播放器</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url("image/jacky/bg.jpg");
+            background-size: cover;/*这个可以保证背景图片填满整个网页，且不平铺*/
+            overflow: hidden;
+        }
+        ul{
+            position: absolute;/*相对于body,父元素是body,所以用绝对定位*/
+            width: 200px;
+            height: 200px;
+            /*margin: 0 auto;在绝对定位中不起作用*/
+            left: 50%;
+            margin-left: -100px;/*先距body一半，再将元素想左移宽度的一半     左对左、右对右*/
+            bottom: 100px;
+            /*background-color: pink;*/
+            transform-style: preserve-3d;
+            animation: zhuan 6s  linear 0s infinite ;
+        }
+        /*动画中如果有默认样式中同名的属性，会覆盖样式中同名的属性*/
+        @keyframes zhuan {
+            from{
+                transform: rotateX(-10deg) rotateY(0deg);/*在编写动画时，要把固定不变的属性写在前面，变化的属性写在后面*/
+            }
+            to{
+                transform: rotateX(-10deg) rotateY(360deg);
+            }
+        }
+        ul li{
+            position: absolute;
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            font-size: 60px;
+            text-align: center;
+            line-height: 200px;
+            left: 0;
+            top: 0;
+            background-color: black;
+        }
+        ul li:nth-child(1){
+            transform: rotateY(60deg) translateZ(200px);
+        }
+        ul li:nth-child(2){
+            transform: rotateY(120deg) translateZ(200px);
+        }
+        ul li:nth-child(3){
+            transform: rotateY(180deg) translateZ(200px);
+        }
+        ul li:nth-child(4){
+            transform: rotateY(240deg) translateZ(200px);
+        }
+        ul li:nth-child(5){
+            transform: rotateY(300deg) translateZ(200px);
+        }
+        ul li:nth-child(6){
+            transform: rotateY(360deg) translateZ(200px);
+        }
+        ul li img{
+            width: 200px;
+            height: 200px;
+            border: 5px solid skyblue;
+            box-sizing: border-box;
+        }
+        .xin{
+            position: absolute;
+            left: 100px;
+            bottom: 100px;
+            animation: move 10s linear infinite;
+        }
+        @keyframes move {/*复杂动画要用百分比做*/
+            0%{
+                left: 100px;
+                bottom: 100px;
+                opacity: 1;
+            }
+            20%{
+                 left: 300px;
+                 bottom: 300px;
+                 opacity: 0;
+             }
+            40%{
+                left: 500px;
+                bottom: 500px;
+                opacity: 1;
+            }
+            60%{
+                left: 800px;
+                bottom: 300px;
+                opacity: 0;
+            }
+            80%{
+                left: 1200px;
+                bottom: 100px;
+                opacity: 1;
+            }
+            100%{
+                left: 800px;
+                bottom: -200px;
+                opacity: 0;
+            }
+        }
+        ul:hover{
+            animation-play-state: paused;/*因为是给ul做的动画，所以要ul才能暂停动画*/
+        }
+        ul:hover li img{
+            opacity: 0.5;
+        }
+        ul li:hover img{
+            opacity: 1;/*越具体越优先添加*/
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="image/jacky/1.png"></li>
+    <li><img src="image/jacky/2.jpg"></li>
+    <li><img src="image/jacky/3.jpg"></li>
+    <li><img src="image/jacky/4.gif"></li>
+    <li><img src="image/jacky/5.jpg"></li>
+    <li><img src="image/jacky/6.jpg"></li>
+</ul>
+<img src="image/jacky/xin.png" class="xin">
+<audio src="image/jacky/江哥最爱的歌.mp3" autoplay="autoplay" loop="loop"></audio>
+</body>
+</html>
