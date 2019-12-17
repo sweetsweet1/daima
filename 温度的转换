@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>温度的转换</title>
+</head>
+<body>
+摄氏度<input type="text" name="ssd" id="text1" value="">
+<button type="button" id="an">转换</button>
+华氏度<input type="text" name="hsd" id="text2" value="">
+<script type="text/javascript">
+    window.onload=function () {
+        var x=document.getElementById('text1');
+        var y=document.getElementById('text2');
+        var z=document.getElementById('an');
+        z.onclick=function () {
+            let yy=x.value*1.8+32;
+            y.value=yy;
+        }
+    }
+</script>
+</body>
+</html>
