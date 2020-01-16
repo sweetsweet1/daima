@@ -1,0 +1,29 @@
+力扣1317 将整数转换为两个无零整数的和
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int check(int x){
+    if (x==0){
+        return 0;
+    }
+    while(x){
+        if(x%10==0){
+            return 0;
+            }
+        x = x/10;
+    }
+    return 1;
+}
+int* getNoZeroIntegers(int n, int* returnSize){
+    *returnSize = 2;
+    int *shuzu=(int *)malloc(sizeof(int ) *2);
+    for (int i = 1; i < n ; i++){
+        int a = i;
+        int b = n - i;
+        if (check(a)&&check(b)){
+            shuzu[0] = a;
+            shuzu[1] = b ;
+        }
+    }
+    return shuzu;
+}
