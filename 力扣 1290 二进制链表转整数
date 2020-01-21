@@ -1,0 +1,17 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+ 
+
+int getDecimalValue(struct ListNode* head){
+     int sum = 0;
+     //head->val = 首位的数字
+    while(head != NULL){
+        sum = sum*2+head->val; //head->val是每一位的值//二进制转十进制
+        head = head->next;
+    }
+    return sum;}
