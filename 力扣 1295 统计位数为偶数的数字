@@ -1,0 +1,14 @@
+int findNumbers(int* nums, int numsSize){
+    int i,count=0,wei;
+    for(i = 0; i < numsSize; i++){
+        wei = 0; //要在循环里面初始化
+        while(nums[i]!=0){
+            nums[i] = nums[i]/10;
+            wei++;
+        }
+        if (wei%2==0){
+            count++;
+        }
+    }
+    return count;
+}
