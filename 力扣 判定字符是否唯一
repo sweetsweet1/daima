@@ -1,0 +1,17 @@
+bool isUnique(char* astr){
+    int flag = 1 , length = strlen(astr);
+    int temp=0;
+    for (int i = 0;i < length; i++){
+        temp = astr[i];
+        for (int j = i+1; j < length; j++){
+            if (astr[j] == temp)
+            {
+                flag = 0;
+            }
+        }
+    }
+    if (flag == 1)
+        return true;
+    else
+        return false;
+}
