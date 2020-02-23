@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风景美如画</title>
+    <style type="text/css">
+        .box{
+            margin: 0 auto;
+            position: relative;
+        }
+        .fj{
+            list-style: none;
+            width: 400px;
+        }
+        .fj li{
+            float: left;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <p id="des">蓝龙</p>
+    <img src="image/qh.01.jpg" width="400" id="img1">
+    <ul class="fj" id="fjj">
+        <li>
+            <a href="image/qh.01.jpg" title="蓝龙">
+                <img src="image/qh.01.jpg" width="100" alt="蓝龙">
+            </a>
+        </li>
+        <li>
+            <a href="image/qh.02.jpg" title="橘子">
+                <img src="image/qh.02.jpg" width="100" alt="橘子">
+            </a>
+        </li>
+        <li>
+            <a href="image/qh.03.jpg" title="女孩">
+                <img src="image/qh.03.jpg" width="100" alt="女孩">
+            </a>
+        </li>
+        <li>
+            <a href="image/qh.04.jpg" title="青蛙">
+                <img src="image/qh.04.jpg" width="100" alt="青蛙">
+            </a>
+        </li>
+    </ul>
+</div>
+<script>
+    window.onload = function (ev) {
+        var des = document.getElementById('des');
+        var img1 = document.getElementById('img1');
+        var fj = document.getElementById('fjj');
+        var alist = fj.getElementsByTagName('a');//拿到fj里的a标签
+        for (var i = 0; i < alist.length ;i ++){
+            var a = alist[i];
+            a.onclick = function (ev1) {
+                des.innerText = this.title;
+                img1.setAttribute('src',this.href);
+                return false;//结束a标签默认的跳转，比如结束href
+            }
+        }
+    }
+</script>
+</body>
+</html>
