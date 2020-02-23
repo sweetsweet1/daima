@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图标切换</title>
+</head>
+<body>
+<img src="image/000.jpg" width="250">
+<script>
+    window.onload = function (ev) {
+        var img1 = document.getElementsByTagName('img')[0];
+        //鼠标进入图片，.onmouseover
+        img1.onmouseover = function (ev1) {
+            this.setAttribute('src','image/77_WPS1图片.png');
+        };
+        //鼠标离开图片，.onmouseout
+        img1.onmouseout = function (ev1) {
+            this.setAttribute('src','image/77_WPS图片.png');
+        };
+        //鼠标在图片上移动，.onmousemove
+        // img1.onmousemove = function (ev1) {
+        //     this.setAttribute('src','image/000.jpg');
+        // }
+    }
+</script>
+</body>
+</html>
