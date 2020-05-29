@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>联动特效</title>
+    <style type="text/css">
+        *{
+            margin : 0;
+            padding: 0;
+        }
+        img{
+            vertical-align: top;/*垂直对齐图像*/
+        }
+        #box{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        #close{
+            width: 25px;
+            height: 25px;
+            background-color: transparent;/*透明*/
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <div id="top">
+        <span id="close"></span>
+        <img src="image/top.jpg">
+    </div>
+    <div id="bottom">
+        <img src="image/bottom.jpg">
+    </div>
+</div>
+<script src="工具/Tool.js"></script>
+<script>
+    window.addEventListener('load',function (ev) {
+        Tool.$('close').addEventListener('click',function () {
+            Tool.donghua(Tool.$('bottom'),{'height' : 0},function () {
+                Tool.donghua(Tool.$('box'),{'width' : 0},function () {
+                    Tool.$('close').style.display = 'none';
+                })
+            });
+        }) ;
+    })
+</script>
+</body>
+</html>
